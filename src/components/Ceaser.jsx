@@ -24,7 +24,7 @@ const CaesarCipher = () => {
     };
 
     const decrypt = (text, key) => {
-        return encrypt(text, 26 - key); // Caesar şifresinin çözülmesi, şifreleme anahtarıyla ters yönde bir kaydırmayla gerçekleşir
+        return encrypt(text, 26 - key);
     };
 
     const handleEncryptDecrypt = () => {
