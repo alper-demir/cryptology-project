@@ -14,11 +14,11 @@ const VigenereCipher = () => {
         for (let i = 0, j = 0; i < text.length; i++) {
             const char = text[i];
 
-            if (/[A-Za-z]/.test(char)) {
-                const baseCharCode = char.toUpperCase() === char ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0);
-                const shift = key[j % keyLength].toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0);
+            if (/[A-Za-z]/.test(char)) { // if text value arrived continue
+                const baseCharCode = char.toUpperCase() === char ? 'A'.charCodeAt(0) : 'a'.charCodeAt(0); // Determine whether the letters in the text are uppercase or lowercase. Base ascii value 65 or 97.
+                const shift = key[j % keyLength].toUpperCase().charCodeAt(0) - 'A'.charCodeAt(0); // In the Vigenere cipher we choose the key to uppercase by default.
                 const charCode = (char.charCodeAt(0) - baseCharCode + (encrypt ? shift : 26 - shift)) % 26 + baseCharCode;
-                result += String.fromCharCode(charCode);
+                result += String.fromCharCode(charCode); // convert from ascii value to text add to result
                 j++;
             } else {
                 result += char;
